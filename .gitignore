@@ -1,5 +1,5 @@
-# Object file
-*.o
+*.conf
+*.log
+*.pyc
+.idea
 
-# Ada Library Information
-*.ali
