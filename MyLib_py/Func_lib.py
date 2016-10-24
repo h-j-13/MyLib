@@ -95,5 +95,27 @@ def getLocalTime(Timeformat=None, returnType='str'):
     else:
         return __now_time_str
 
+def getFileList(self, path, fileList, filetype=None):
+    """
+    获取路径下全部文件名
+    :param path:路径
+    :param filetype:需要获取的文件类型[关键词]
+    :return: 含有文件名的列表 [fileList
+    """
+    newDir = path
+    if os.path.isfile(path):
+        file = path.decode('utf-8')  # linux - utf8;windows - gbk
+        if filetype:
+            if file.find(filetype) != -1:
+                print file
+                fileList.append(file)
+        else:
+            fileList.append(file)
+    elif os.path.isdir(path):
+        for s in os.listdir(path):
+            newDir = os.path.join(path, s)
+            self.getFileList(newDir, fileList, filetype=filetype)
+    return fileList
+
 if __name__ == '__main__':
     getLocalTime()
