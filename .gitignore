@@ -1,4 +1,3 @@
-*.conf
 *.log
 *.pyc
 .idea
